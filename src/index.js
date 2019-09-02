@@ -17,6 +17,7 @@ const basketItemsElement = document.querySelector('#basket-items');
 const basketQuantityElement = document.querySelector('#basket-quantity');
 const basketPurchaseButton = document.querySelector('#basket-purchase-button');
 const basketClearButton = document.querySelector('#basket-clear-button');
+const basketEmptyNote = document.querySelector('#basket-empty-note');
 
 // call `.forEach()` on the results of a call to `document.querySelectorAll()`
 function bindOnClickWithId(selectors, callback) {
@@ -46,12 +47,14 @@ function renderBasket() {
   });
   // update the basket quantity
   basketQuantityElement.textContent = basket.totalQuantity.toString();
-  // if the basket is empty, disable the purchase and clear buttons
-  // otherwise enable them
+  // if the basket is empty, disable the purchase and clear buttons and show a note
+  // otherwise enable them and hide the note
   if (basket.isEmpty()) {
+    basketEmptyNote.classList.remove('is-hidden');
     basketPurchaseButton.setAttribute('disabled', 'disabled');
     basketClearButton.setAttribute('disabled', 'disabled');
   } else {
+    basketEmptyNote.classList.add('is-hidden');
     basketPurchaseButton.removeAttribute('disabled');
     basketClearButton.removeAttribute('disabled');
   }
