@@ -7,3 +7,5 @@ A shopping cart example using plain javascript, bulma for ui and webpack
 Run `$ npm run build` to build locally then open `index.html` in a web browser
 
 Remember to build before pushing to ensure GitHub Pages works
+
+Tested on Firefox Quantum (68.0.2 (64-bit))
