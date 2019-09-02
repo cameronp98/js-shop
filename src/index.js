@@ -80,21 +80,80 @@ function clearBasket() {
 // render the basket for the first time
 renderBasket();
 
+function querySelectorBindClick(selectors, callback) {
+  document.querySelector(selectors).addEventListener('click', callback);
+}
+
+// modal setup
+const modalDiv = document.querySelector('#modal');
+
+function showModal(content) {
+  document.querySelector('html').classList.add('is-clipped');
+  modalDiv.classList.add('is-active');
+  modalDiv.innerHTML = content;
+}
+
+function hideModal() {
+  document.querySelector('html').classList.remove('is-clipped');
+  modalDiv.classList.remove('is-active');
+  modalDiv.innerHTML = '';
+}
+
+function modalConfirm(message, callback) {
+  showModal(`
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <p class="is-large">${message}</p>
+      <h1>
+      <div class="buttons">
+        <button id="modal-ok-button" class="button is-primary">Ok</button>
+        <button id="modal-cancel-button" class="button">Cancel</button>
+      </buttons>
+      <button id="modal-close-button" class="modal-close is-large"></button>
+    </div>`);
+
+  // bind the close button
+  querySelectorBindClick('#modal-close-button', () => {
+    callback(false);
+    hideModal();
+  });
+
+  // bind the ok button
+  querySelectorBindClick('#modal-ok-button', () => {
+    callback(true);
+    hideModal();
+  });
+
+  // bind the cancel button
+  querySelectorBindClick('#modal-cancel-button', () => {
+    callback(false);
+    hideModal();
+  });
+}
+
 // bind the purchase button
 basketPurchaseButton.addEventListener('click', () => {
-  // @TODO use bulma modal over confirm
-  if (confirm(`would you like to purchase ${basket.totalQuantity} items?`)) {
-    console.log(basket);
-    clearBasket();
-  }
+  modalConfirm(
+    `would you like to purchase ${basket.totalQuantity} items?`,
+    (ok) => {
+      if (ok) {
+        console.log(`purchase ${basket}`);
+        clearBasket();
+      }
+    },
+  );
 });
 
-// bint the clear basket button
+// bind the clear basket button
 basketClearButton.addEventListener('click', () => {
-  // @TODO use bulma modal over confirm
-  if (confirm('would you like to clear the basket?')) {
-    clearBasket();
-  }
+  modalConfirm(
+    `would you like to clear your ${basket.totalQuantity} items?`,
+    (ok) => {
+      if (ok) {
+        clearBasket();
+      }
+    },
+  );
 });
 
 // 'fetch' some items
