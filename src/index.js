@@ -18,6 +18,7 @@ const basketQuantityElement = document.querySelector('#basket-quantity');
 const basketPurchaseButton = document.querySelector('#basket-purchase-button');
 const basketClearButton = document.querySelector('#basket-clear-button');
 const basketEmptyNote = document.querySelector('#basket-empty-note');
+const basketLink = document.querySelector('#basket-link');
 
 // for each selected element, bind a click event which calls
 // `callback` with the value of the element's `data-id` attribute
@@ -60,6 +61,14 @@ function renderBasket() {
     basketPurchaseButton.removeAttribute('disabled');
     basketClearButton.removeAttribute('disabled');
   }
+  // shake the basket link up and down to signify a change
+  basketLink.animate([
+    { transform: 'translateY(2px)' },
+    { transform: 'translateY(-2px)' },
+  ],
+  {
+    duration: 200,
+  });
 }
 
 // remove all items from the basket and render
