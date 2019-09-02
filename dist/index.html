@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js-shop</title>
+  <link rel="stylesheet" href="css/bundle.css">
+</head>
+
+<body>
+  <nav class="navbar is-light">
+    <div class="container">
+      <div class="navbar-start">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">shop.js</a>
+        </div>
+      </div>
+
+      <div class="navbar-end">
+        <!-- basket -->
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link is-primary">
+            <span class="icon is-large">
+              <i class="fas fa-shopping-basket fa-lg"></i>
+            </span>
+            <span>0</span>
+          </a>
+
+          <!-- basket items & checkout -->
+          <div class="navbar-dropdown is-right">
+            <ul id="basket-items">
+
+            </ul>
+            <hr class="navbar-divider">
+
+            <div class="navbar-item buttons">
+              <a href="#purchase" class="button is-fullwidth is-primary">Purchase</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title">welcome to shop.js!</h1>
+      <h2 class="subtitle is-4">please have a look at our wares :)</h2>
+
+      <ul class="items-list">
+
+      </ul>
+    </div>
+  </section>
+
+  <script src="js/bundle.js"></script>
+</body>
+
+</html>
