@@ -19,7 +19,8 @@ const basketPurchaseButton = document.querySelector('#basket-purchase-button');
 const basketClearButton = document.querySelector('#basket-clear-button');
 const basketEmptyNote = document.querySelector('#basket-empty-note');
 
-// call `.forEach()` on the results of a call to `document.querySelectorAll()`
+// for each selected element, bind a click event which calls
+// `callback` with the value of the element's `data-id` attribute
 function bindOnClickWithId(selectors, callback) {
   const elements = document.querySelectorAll(selectors);
   if (elements) {
@@ -49,6 +50,7 @@ function renderBasket() {
   basketQuantityElement.textContent = basket.totalQuantity.toString();
   // if the basket is empty, disable the purchase and clear buttons and show a note
   // otherwise enable them and hide the note
+  // @TODO probably could be better
   if (basket.isEmpty()) {
     basketEmptyNote.classList.remove('is-hidden');
     basketPurchaseButton.setAttribute('disabled', 'disabled');
