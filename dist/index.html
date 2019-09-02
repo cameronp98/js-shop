@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="has-navbar-fixed-top" lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <nav class="navbar is-light">
+  <nav class="navbar is-fixed-top is-light">
     <div class="container">
       <div class="navbar-start">
         <div class="navbar-brand">
@@ -25,18 +25,24 @@
             <span class="icon is-large">
               <i class="fas fa-shopping-basket fa-lg"></i>
             </span>
-            <span>0</span>
+            <span id="basket-quantity">0</span>
           </a>
 
           <!-- basket items & checkout -->
           <div class="navbar-dropdown is-right">
-            <ul id="basket-items">
+            <p class="navbar-item">Your basket is currently empty!</p>
 
+            <ul id="basket-items">
+              <!-- generated items go here -->
             </ul>
+
             <hr class="navbar-divider">
 
+            <!-- action buttons -->
+
             <div class="navbar-item buttons">
-              <a href="#purchase" class="button is-fullwidth is-primary">Purchase</a>
+              <button id="basket-purchase-button" class="button is-fullwidth is-primary" disabled>Purchase</button>
+              <button id="basket-clear-button" class="button is-fullwidth is-danger">Clear basket</button>
             </div>
           </div>
         </div>
