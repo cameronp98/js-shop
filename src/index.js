@@ -84,17 +84,28 @@ basketClearButton.addEventListener('click', () => {
   }
 });
 
-// 'fetch' some items to display and manage
-const itemBank = new ItemBank([
-  new Item(1, 'Nike AirJordan', 'Big Shoes, Nigga.'),
-  new Item(2, 'Valentino White Leather Bag', 'Whwhwhwahahwhw'),
-]);
+// 'fetch' some items
+function fetchItems() {
+  return new ItemBank([
+    new Item(1, 'Nike AirJordan', 'Big Shoes, Nigga.'),
+    new Item(2, 'Valentino White Leather Bag', 'Whwhwhwahahwhw'),
+  ]);
+}
+
+// 'fetch' some items
+const itemBank = fetchItems();
 
 // render the items
-const itemsListElement = document.querySelector('.items-list');
-itemBank.items.forEach((item) => {
-  itemsListElement.appendChild(item.render());
-});
+function renderItems() {
+  // render the items
+  const itemsListElement = document.querySelector('.items-list');
+  itemBank.items.forEach((item) => {
+    itemsListElement.appendChild(item.render());
+  });
+}
+
+// render the items for the first time
+renderItems();
 
 // add event listeners to the `.add-item-button`s created above
 bindOnClickWithId('.add-item-button', (id) => {
