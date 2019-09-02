@@ -87,8 +87,8 @@ basketClearButton.addEventListener('click', () => {
 // 'fetch' some items
 function fetchItems() {
   return new ItemBank([
-    new Item(1, 'Nike AirJordan', 'Big Shoes, Nigga.'),
-    new Item(2, 'Valentino White Leather Bag', 'Whwhwhwahahwhw'),
+    new Item(1, 'Apple', 'The fruit. Keeps the doctor away.'),
+    new Item(2, 'Shoes', 'For sale: Nike Air Max, never worn.'),
   ]);
 }
 
