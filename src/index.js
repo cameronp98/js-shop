@@ -82,6 +82,7 @@ renderBasket();
 
 // bind the purchase button
 basketPurchaseButton.addEventListener('click', () => {
+  // @TODO use bulma modal over confirm
   if (confirm(`would you like to purchase ${basket.totalQuantity} items?`)) {
     console.log(basket);
     clearBasket();
@@ -90,6 +91,7 @@ basketPurchaseButton.addEventListener('click', () => {
 
 // bint the clear basket button
 basketClearButton.addEventListener('click', () => {
+  // @TODO use bulma modal over confirm
   if (confirm('would you like to clear the basket?')) {
     clearBasket();
   }
