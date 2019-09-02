@@ -63,8 +63,8 @@ function renderBasket() {
   }
   // shake the basket link up and down to signify a change
   basketLink.animate([
-    { transform: 'translateY(2px)' },
-    { transform: 'translateY(-2px)' },
+    { transform: 'scale(0.9)' },
+    { transform: 'scale(1.1)' },
   ],
   {
     duration: 200,
